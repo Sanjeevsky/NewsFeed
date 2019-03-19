@@ -5,9 +5,11 @@ import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
+import android.os.Handler;
 import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.util.Pair;
 import android.support.v4.view.ViewCompat;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.DefaultItemAnimator;
@@ -43,6 +45,7 @@ public class MainActivity extends AppCompatActivity {
     private List<Article> articles=new ArrayList<>();
     private Adapter adapter;
     private String TAG=MainActivity.class.getSimpleName();
+    SwipeRefreshLayout swipeRefreshLayout;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,8 +57,23 @@ public class MainActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(layoutManager);
         recyclerView.setItemAnimator(new DefaultItemAnimator());
         recyclerView.setNestedScrollingEnabled(false);
-
         LoadJson("");
+        swipeRefreshLayout=findViewById(R.id.swipe);
+        swipeRefreshLayout.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+            @Override
+            public void onRefresh() {
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+                        swipeRefreshLayout.setRefreshing(false);
+                        LoadJson("");
+                    }
+                }, 2000);
+
+            }
+        });
+
+
     }
 
     public void LoadJson(final String keyword){
@@ -63,7 +81,6 @@ public class MainActivity extends AppCompatActivity {
         ApiInterface apiInterface=ApiClient.getApiClient().create(ApiInterface.class);
 
                 String country=Utils.getCountry();
-                String language= Utils.getCountry();
 
 
                 Call<News> call;

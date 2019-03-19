@@ -138,8 +138,9 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/time"
                 android:layout_margin="10dp"
-                android:textColor="#000"
-                android:background="#fff0"/>
+                android:textColor="#010"
+                android:padding="3dp"
+                android:background="@drawable/round_white"/>
 
         </RelativeLayout>
 
