@@ -17,6 +17,7 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
+            android:background="?android:attr/selectableItemBackground"
             android:layout_height="wrap_content">
 
             <ImageView
@@ -39,7 +40,8 @@
                 android:layout_height="wrap_content"
                 android:id="@+id/progress_load_photo"
                 style="@android:style/Widget.ProgressBar.Small"
-                android:layout_marginTop="70dp"/>
+                android:layout_marginTop="70dp"
+                android:visibility="gone"/>
 
             <TextView
                 android:layout_width="match_parent"
@@ -83,7 +85,7 @@
                 android:layout_height="wrap_content"
                 android:textColor="#606060"
                 android:id="@+id/publishedAt"
-                android:text="01 Jsn 1990"
+                android:text="01 Jan 1990"
                 android:layout_marginRight="10dp"
                 android:layout_marginLeft="27dp"/>
 
@@ -106,7 +108,7 @@
             <TextView
                 android:id="@+id/desc"
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@id/title"
                 android:layout_marginLeft="16dp"
                 android:layout_marginRight="16dp"
@@ -133,8 +135,11 @@
 
             <TextView
                 android:layout_width="wrap_content"
-                android:layout_height="20dp"
-                android:id="@+id/time"/>
+                android:layout_height="wrap_content"
+                android:id="@+id/time"
+                android:layout_margin="10dp"
+                android:textColor="#000"
+                android:background="#fff0"/>
 
         </RelativeLayout>
 

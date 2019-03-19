@@ -75,8 +75,8 @@ public class Adapter extends RecyclerView.Adapter<Adapter.MyViewHolder> {
         holder.title.setText(model.getTitle());
         holder.desc.setText(model.getDescription());
         holder.source.setText(model.getSource().getName());
-        holder.time.setText(" \n2022 "+Utils.DateToTimeFormat(model.getPublishedAt()));
-        holder.published_at.setText(Utils.DateFormat(model.getPublishedAt()));
+        holder.time.setText(Utils.DateToTimeFormat(model.getPublishedAt(),context));
+        holder.published_at.setText(Utils.DateFormat(model.getPublishedAt(),context));
         holder.author.setText(model.getAuthor());
 
     }
