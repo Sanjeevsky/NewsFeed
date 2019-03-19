@@ -26,7 +26,7 @@ It is used to generate request to News Api and Parse The Response into object Th
 # Glide
 Glide dependency is Used To load Images Into Recycler For the Icons Received From The API.
 
-# NewsOrg API
+# NewsApi Org
 It Provide App With The JSON Data that is parsed Using Retrofit and RecyclerView.
 
 # ScreenShot
